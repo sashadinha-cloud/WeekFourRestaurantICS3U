@@ -25,16 +25,18 @@ public class Main {
 		System.out.println("how many pasteries would you like");
 		int pastries = in.nextInt();
 		String[] pasteries = { "cream puffs", "sausage rolls" };
-		System.out.println("/n/  cinnamon rolls  ++tota l$8    /n/");
-		System.out.println("/n/ cream puffs ++total     $12    /n/");
-		System.out.println("/n/ sausage ++total        $10    /n/");
-		int total = in.nextInt();
-		int discount = in.nextInt();
+		System.out.println("1. cinnamonrolls   l$8   ");
+		System.out.println("2. creampuffs       $12    ");
+		System.out.println("3. sausage           $10   ");
+		System.out.println("6. Exit");
 		System.out.println("Enter your choice");
 		int choice = in.nextInt();
 		if (choice >= 1 && choice <= 5) {
+
 			System.out.println("enter quantity");
 			int quantity = in.nextInt();
+			int total = 0;
+			int discount = 0;
 			switch (choice) {
 			case 1:
 				total = total + (8 * quantity);
@@ -45,23 +47,22 @@ public class Main {
 			case 3:
 				total = total + (10 * quantity);
 				System.out.println("the item is added!");
-				if (total > 30) {
-					discount = total * 10 / 100;
-				} else if (total < 50) {
-					discount = total * 20 / 100;
-				} else {
-					discount = 0;
-					double finalbill = total - discount;
-					System.out.println("=====  the bill =====");
-					System.out.println("total:$" + total);
-					System.out.println("discount: $" + discount);
-					System.out.println("Amount to pay: $" + finalbill);
-
-				}
+				break;
 			}
+			if (total > 30) {
+				discount = total * 10 / 100;
+			} else if (total < 50) {
+				discount = total * 20 / 100;
+			} else {
+				discount = 0;
+			}
+			double finalbill = total - discount;
+			System.out.println("=====  the bill =====");
+			System.out.println("total:$" + total);
+			System.out.println("discount: $" + discount);
+			System.out.println("Amount to pay: $" + finalbill);
 
 		}
 
 	}
-
 }
